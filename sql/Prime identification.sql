@@ -35,7 +35,7 @@ FROM
 WHERE 
 	h.voter_id = v.id and
 	h.election_type IN ('PP', 'PR') and
-	h.election_date > '2008-01-01'
+	h.election_date > '2018-01-01'
 	and v.party IN ('DEM', 'D')
 GROUP BY 
 	v.id
