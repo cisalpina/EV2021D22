@@ -103,7 +103,7 @@ UPDATE voters SET ExtendedPrime = 'Y' WHERE id IN
 );
 
 /* Triple Prime Density Identifier */
-sSELECT 
+SELECT 
 	house_number, 
 	street_name, 
 	zip_code,
