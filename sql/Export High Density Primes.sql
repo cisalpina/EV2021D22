@@ -1,5 +1,8 @@
 /* Super Triple Prime Density Identifier */
-SELECT 
+SELECT
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	UNION
+( SELECT
 	concat(v.house_number, " ", v.street_name) Address,
 	v.city City,
 	"New York" State,
@@ -30,15 +33,18 @@ WHERE
 	Primes.street_name   = v.street_name and
 	Primes.zip_code     = v.zip_code and
 	v.SuperTriplePrime = 'Y'
-ORDER BY Primes.votercount DESC
-INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export High Density Super Triple Primes.csv' 
+ORDER BY Primes.votercount DESC )
+INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export/Export High Density Super Triple Primes.csv' 
 FIELDS ENCLOSED BY '"' 
 TERMINATED BY ',' 
 ESCAPED BY '"' 
 LINES TERMINATED BY '\r\n';
 
 /* Triple Prime Density Identifier */
-SELECT 
+SELECT
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	UNION
+( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
 	v.city City,
 	"New York" State,
@@ -62,22 +68,25 @@ SELECT
 	GROUP BY 
 		house_number, street_name, zip_code 
 	HAVING 
-		COUNT(*) > 3
+		COUNT(*) > 10
 	) Primes
 WHERE 
 	Primes.house_number = v.house_number and
 	Primes.street_name   = v.street_name and
 	Primes.zip_code     = v.zip_code and
 	v.TriplePrime = 'Y'
-ORDER BY Primes.votercount DESC
-INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export High Density Triple Primes.csv' 
+ORDER BY Primes.votercount DESC )
+INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export/Export High Density Triple Primes.csv' 
 FIELDS ENCLOSED BY '"' 
 TERMINATED BY ',' 
 ESCAPED BY '"' 
 LINES TERMINATED BY '\r\n';
 
 /* Double Prime Density Identifier */
-SELECT 
+SELECT
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	UNION
+( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
 	v.city City,
 	"New York" State,
@@ -101,22 +110,25 @@ SELECT
 	GROUP BY 
 		house_number, street_name, zip_code 
 	HAVING 
-		COUNT(*) > 3
+		COUNT(*) > 20
 	) Primes
 WHERE 
 	Primes.house_number = v.house_number and
 	Primes.street_name   = v.street_name and
 	Primes.zip_code     = v.zip_code and
 	v.DoublePrime = 'Y'
-ORDER BY Primes.votercount DESC
-INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export High Density Double Primes.csv' 
+ORDER BY Primes.votercount DESC )
+INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export/Export High Density Double Primes.csv' 
 FIELDS ENCLOSED BY '"' 
 TERMINATED BY ',' 
 ESCAPED BY '"' 
 LINES TERMINATED BY '\r\n';
 
 /* Standard Prime Density Identifier */
-SELECT 
+SELECT
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	UNION
+( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
 	v.city City,
 	"New York" State,
@@ -140,22 +152,25 @@ SELECT
 	GROUP BY 
 		house_number, street_name, zip_code 
 	HAVING 
-		COUNT(*) > 3
+		COUNT(*) > 40
 	) Primes
 WHERE 
 	Primes.house_number = v.house_number and
 	Primes.street_name   = v.street_name and
 	Primes.zip_code     = v.zip_code and
 	v.Prime = 'Y'
-ORDER BY Primes.votercount DESC
-INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export High Density Standard Primes.csv' 
+ORDER BY Primes.votercount DESC )
+INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export/Export High Density Standard Primes.csv' 
 FIELDS ENCLOSED BY '"' 
 TERMINATED BY ',' 
 ESCAPED BY '"' 
 LINES TERMINATED BY '\r\n';
 
 /* Standard ExtendedPrime Density Identifier */
-SELECT 
+SELECT
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	UNION
+( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
 	v.city City,
 	"New York" State,
@@ -179,15 +194,15 @@ SELECT
 	GROUP BY 
 		house_number, street_name, zip_code 
 	HAVING 
-		COUNT(*) > 3
+		COUNT(*) > 40
 	) Primes
 WHERE 
 	Primes.house_number = v.house_number and
 	Primes.street_name   = v.street_name and
 	Primes.zip_code     = v.zip_code and
 	v.ExtendedPrime = 'Y'
-ORDER BY Primes.votercount DESC
-INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export High Density Extended Primes.csv' 
+ORDER BY Primes.votercount DESC )
+INTO OUTFILE 'C:/Users/georg/OneDrive/Desktop/VoteSQL/github/EV2021D22/sql/Export/Export High Density Extended Primes.csv' 
 FIELDS ENCLOSED BY '"' 
 TERMINATED BY ',' 
 ESCAPED BY '"' 

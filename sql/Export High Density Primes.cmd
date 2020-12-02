@@ -1,1 +1,0 @@
-mysql -h localhost -u root -p3vie4EvahNEvah voterdata < "Export High Density Primes.sql"

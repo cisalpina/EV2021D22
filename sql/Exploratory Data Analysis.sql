@@ -4,10 +4,6 @@ Data Set Provided by Litza has three "history" tables
 	- cleansed data (history, in which ... have been removed)
 	- history_district - D22
 
-Create Indexes for performance
-
-Let's first confirm that counts in History_district is the same as in history when filtered for assembly/election districts */
-
 /* 1) 529,695 */
 SELECT COUNT(*) FROM history_district;
 

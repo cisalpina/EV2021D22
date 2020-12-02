@@ -1,10 +1,10 @@
-ALTER TABLE `voters` 
+/* ALTER TABLE `voters` 
 ADD COLUMN SuperTriplePrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
 ADD COLUMN TriplePrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
 ADD COLUMN DoublePrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
 ADD COLUMN Prime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
 ADD COLUMN ExtendedPrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN
-;
+; */
 
 UPDATE voters SET SuperTriplePrime = 'N';
 UPDATE voters SET TriplePrime = 'N';
@@ -75,8 +75,8 @@ UPDATE voters SET Prime = 'Y' WHERE id IN
 		history h
 	WHERE 
 		h.voter_id = v.id and
-		h.election_type IN ('PP', 'PR') -- AND
---		h.election_date > '2008-01-01'
+		h.election_type IN ('PP', 'PR')  AND
+		h.election_date > '2008-01-01'
 		and v.party IN ('DEM', 'D')
 	GROUP BY 
 		v.id
@@ -101,19 +101,3 @@ UPDATE voters SET ExtendedPrime = 'Y' WHERE id IN
 	HAVING
 		COUNT(*) > 0
 );
-
-/* Triple Prime Density Identifier */
-SELECT 
-	house_number, 
-	street_name, 
-	zip_code,
-	COUNT(*)
-FROM 
-	voters 
-WHERE
- 	SuperTriplePrime = 'Y' 
-GROUP BY 
-	house_number, street_name, zip_code 
-HAVING 
-	COUNT(*) > 3
-ORDER BY COUNT(*) Desc;
