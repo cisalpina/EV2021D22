@@ -1,6 +1,6 @@
 /* Super Triple Prime Density Identifier */
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress', 'Election District', 'Assembly District'
 	UNION
 ( SELECT
 	concat(v.house_number, " ", v.street_name) Address,
@@ -12,7 +12,9 @@ SELECT
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
 	v.email Email,
-	Primes.votercount VoterCountAtAddress
+	Primes.votercount VoterCountAtAddress,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 	FROM voters v,
 	 ( SELECT 
 		house_number, 
@@ -42,7 +44,7 @@ LINES TERMINATED BY '\r\n';
 
 /* Triple Prime Density Identifier */
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -54,7 +56,9 @@ SELECT
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
 	v.email Email,
-	Primes.votercount VoterCountAtAddress
+	Primes.votercount VoterCountAtAddress,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 	FROM voters v,
 	 ( SELECT 
 		house_number, 
@@ -84,7 +88,7 @@ LINES TERMINATED BY '\r\n';
 
 /* Double Prime Density Identifier */
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -96,7 +100,9 @@ SELECT
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
 	v.email Email,
-	Primes.votercount VoterCountAtAddress
+	Primes.votercount VoterCountAtAddress,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 	FROM voters v,
 	 ( SELECT 
 		house_number, 
@@ -126,7 +132,7 @@ LINES TERMINATED BY '\r\n';
 
 /* Standard Prime Density Identifier */
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -138,7 +144,9 @@ SELECT
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
 	v.email Email,
-	Primes.votercount VoterCountAtAddress
+	Primes.votercount VoterCountAtAddress,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 	FROM voters v,
 	 ( SELECT 
 		house_number, 
@@ -168,7 +176,7 @@ LINES TERMINATED BY '\r\n';
 
 /* Standard ExtendedPrime Density Identifier */
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress' 
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'VoterCountAtAddress', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -180,7 +188,9 @@ SELECT
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
 	v.email Email,
-	Primes.votercount VoterCountAtAddress
+	Primes.votercount VoterCountAtAddress,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 	FROM voters v,
 	 ( SELECT 
 		house_number, 

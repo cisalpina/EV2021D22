@@ -1,0 +1,1 @@
+mysql -h localhost -u root -p3vie4EvahNEvah voterdata < "Export Voter Data.sql"

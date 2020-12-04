@@ -1,6 +1,6 @@
 /* Voted in last three primaries - Super Triple Prime */	
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email'
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -11,7 +11,9 @@ SELECT
 	v.telephone 'Phone Number',
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
-	v.email Email
+	v.email Email,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 FROM
 	voters v
 WHERE 
@@ -25,7 +27,7 @@ LINES TERMINATED BY '\r\n';
 	
 /* Triple Prime */	
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email'
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -36,7 +38,9 @@ SELECT
 	v.telephone 'Phone Number',
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
-	v.email Email
+	v.email Email,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 FROM
 	voters v
 WHERE 
@@ -50,7 +54,7 @@ LINES TERMINATED BY '\r\n';
 	
 /* Double Prime */	
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email'
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -61,7 +65,9 @@ SELECT
 	v.telephone 'Phone Number',
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
-	v.email Email
+	v.email Email,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 FROM
 	voters v
 WHERE 
@@ -75,7 +81,7 @@ LINES TERMINATED BY '\r\n';
 	
 /* Standard Prime */	
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email'
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -86,7 +92,9 @@ SELECT
 	v.telephone 'Phone Number',
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
-	v.email Email
+	v.email Email,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 FROM
 	voters v
 WHERE 
@@ -100,7 +108,7 @@ LINES TERMINATED BY '\r\n';
 	
 /* Extended Prime */	
 SELECT
-	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email'
+	'Address', 'City', 'State', 'Zipcode', 'Name', 'Phone Number', 'Group', 'URL', 'Email', 'Election District', 'Assembly District'
 	UNION
 ( SELECT 
 	concat(v.house_number, " ", v.street_name) Address,
@@ -111,7 +119,9 @@ SELECT
 	v.telephone 'Phone Number',
 	If(LENGTH(v.apartment_number) > 0, CONCAT ("Apartment ", v.apartment_number), "") 'Group',
 	CONCAT ("Party: ", v.party) URL,
-	v.email Email
+	v.email Email,
+	v.election_district 'Election District',
+	v.assembly_district 'Assembly District'
 FROM
 	voters v
 WHERE 
