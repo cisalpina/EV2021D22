@@ -4,11 +4,11 @@ CREATE INDEX IF NOT EXISTS DPAddress ON voters(house_number, street_name, zip_co
 CREATE INDEX IF NOT EXISTS PAddress ON voters(house_number, street_name, zip_code, Prime);
 CREATE INDEX IF NOT EXISTS EPAddress ON voters(house_number, street_name, zip_code, ExtendedPrime);
 
-Alter table `voters` drop column if exists SuperTriplePrimeAtLocation;
-Alter table `voters` drop column if exists TriplePrimeAtLocation;
-Alter table `voters` drop column if exists DoublePrimeAtLocation;
-Alter table `voters` drop column if exists PrimeAtLocation;
-Alter table `voters` drop column if exists ExtendedPrimeAtLocation;
+Alter table `voters` drop column IF EXISTS SuperTriplePrimeAtLocation;
+Alter table `voters` drop column IF EXISTS TriplePrimeAtLocation;
+Alter table `voters` drop column IF EXISTS DoublePrimeAtLocation;
+Alter table `voters` drop column IF EXISTS PrimeAtLocation;
+Alter table `voters` drop column IF EXISTS ExtendedPrimeAtLocation;
 
 ALTER TABLE `voters` 
 ADD COLUMN SuperTriplePrimeAtLocation INTEGER(11) AFTER SuperTriplePrime, 
@@ -21,8 +21,8 @@ Update
 	voters vu
 Set 
 	vu.SuperTriplePrimeAtLocation = 
-	(select 
-		count(*) 
+	select 
+		count(*) cnt 
 	from 
 		voters vs
 	where 

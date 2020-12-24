@@ -1,10 +1,10 @@
-/* ALTER TABLE `voters` 
+ALTER TABLE `voters` 
 ADD COLUMN SuperTriplePrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
 ADD COLUMN TriplePrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
-ADD COLUMN DoublePrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
+ADD COLUMN DoublePrix VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
 ADD COLUMN Prime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN,
 ADD COLUMN ExtendedPrime VARCHAR(1) CHARACTER SET utf8 COLLATE UTF8_BIN
-; */
+;
 
 UPDATE voters SET SuperTriplePrime = 'N';
 UPDATE voters SET TriplePrime = 'N';
@@ -14,7 +14,7 @@ UPDATE voters SET ExtendedPrime = 'N';
 
 UPDATE voters SET SuperTriplePrime = 'Y' WHERE id IN 
 (
-	SELECT
+	SELECT rando.id FROM ( SELECT
 		v.id
 	FROM
 		voters v,
@@ -28,11 +28,11 @@ UPDATE voters SET SuperTriplePrime = 'Y' WHERE id IN
 		v.id
 	HAVING
 		COUNT(*) > 2
-);
+) rando );
 
 UPDATE voters SET TriplePrime = 'Y' WHERE id IN 
 (
-	SELECT
+	SELECT rando.id FROM ( SELECT
 		v.id
 	FROM
 		voters v,
@@ -46,11 +46,11 @@ UPDATE voters SET TriplePrime = 'Y' WHERE id IN
 		v.id
 	HAVING
 		COUNT(*) > 2
-);
+) rando );
 
 UPDATE voters SET DoublePrime = 'Y' WHERE id IN 
 (
-	SELECT
+	SELECT rando.id FROM ( SELECT
 		v.id
 	FROM
 		voters v,
@@ -64,11 +64,11 @@ UPDATE voters SET DoublePrime = 'Y' WHERE id IN
 		v.id
 	HAVING
 		COUNT(*) > 1
-);
+) rando ); 
 
 UPDATE voters SET Prime = 'Y' WHERE id IN 
 (
-	SELECT
+	SELECT rando.id FROM ( SELECT
 		v.id
 	FROM
 		voters v,
@@ -82,11 +82,11 @@ UPDATE voters SET Prime = 'Y' WHERE id IN
 		v.id
 	HAVING
 		COUNT(*) > 0
-);
+) rando );
 
 UPDATE voters SET ExtendedPrime = 'Y' WHERE id IN 
 (
-	SELECT
+	SELECT rando.id FROM ( SELECT
 		v.id
 	FROM
 		voters v,
@@ -100,4 +100,4 @@ UPDATE voters SET ExtendedPrime = 'Y' WHERE id IN
 		v.id
 	HAVING
 		COUNT(*) > 0
-);
+) rando );
